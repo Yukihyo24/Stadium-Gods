@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BOTM - Stadium Gods</title>
+  <style>
+    body {
+      font-family: Cursive, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('https://i83.servimg.com/u/f83/19/48/18/17/sans_t16.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    .section {
+      display: none;
+      padding: 20px;
+      text-align: center;
+    }
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+    /* Cadre des champions */
+    .champions-container {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 80%;
+      border: 2px solid #fff;
+      border-radius: 10px;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    .champion {
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.3);
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .champion img {
+      max-width: 100px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+    .champion h3 {
+      margin: 10px 0 5px;
+    }
+    .champion button {
+      padding: 5px 10px;
+      background-color: #ab2145;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .champion button:hover {
+      background-color: #ab21a9;
+    }
+    .poste {
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.3);
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    .poste.hidden {
+      display: none;
+    }
+    /* Layout du terrain */
+    .terrain {
+      display: grid;
+      grid-template-areas:
+        "gardien gardien gardien gardien gardien"
+        "defenseur1 defenseur2 defenseur3 defenseur4 defenseur4"
+        "milieu1 milieu2 milieu3 milieu4 milieu4"
+        "attaquant1 attaquant1 attaquant2 attaquant2 attaquant2";
+      gap: 10px;
+      justify-content: center;
+      margin: 20px 0;
+    }
+    .poste img {
+      max-width: 80px;
+    }
+    
+  </style>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stadium Gods</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Stadium Gods</h1>
+
+  <!-- Choix du Champion -->
+  <div id="choix-champion" class="section visible">
+    <h2>Choisissez un Champion</h2>
+    <div class="champions-container">
+      <!-- 18 Champions -->
+      <div class="champion">
+        <h3>C. Ronaldo</h3>
+        <img src="https://i83.servimg.com/u/f83/19/48/18/17/cr710.png" alt="Champion 1">
+        <button onclick="choisirChampion(1)">Choisir</button>
+      </div>
+      <div class="champion">
+        <h3>Zidane</h3>
+        <img src="https://i83.servimg.com/u/f83/19/48/18/17/zidane10.png" alt="Champion 2">
+        <button onclick="choisirChampion(2)">Choisir</button>
+      </div>
+        <div class="champion">
+        <h3>Luffy</h3>
+        <img src="https://i83.servimg.com/u/f83/19/48/18/17/luffy11.png" alt="Champion 3">
+        <button onclick="choisirChampion(3)">Choisir</button>
+      </div>
+      <div class="champion">
+        <h3>Naruto</h3>
+        <img src="https://i83.servimg.com/u/f83/19/48/18/17/naruto15.png" alt="Champion 4">
+        <button onclick="choisirChampion(4)">Choisir</button>
+      </div>
+  <div class="champion">
+        <h3>Spider-Man</h3>
+        <img src="https://i83.servimg.com/u/f83/19/48/18/17/spidey10.png" alt="Champion 5">
+        <button onclick="choisirChampion(5)">Choisir</button>
+      </div>
+      <div class="champion">
+        <h3>Sakura</h3>
+        <img src="https://i83.servimg.com/u/f83/19/48/18/17/sakura10.png" alt="Champion 6">
+        <button onclick="choisirChampion(6)">Choisir</button>
+      </div>
+  <div class="champion">
+        <h3>Sonic</h3>
+        <img src="https://i83.servimg.com/u/f83/19/48/18/17/sonic11.png" alt="Champion 7">
+        <button onclick="choisirChampion(7)">Choisir</button>
+      </div>
+      <div class="champion">
+        <h3>Baby Vegeta</h3>
+        <img src="https://i83.servimg.com/u/f83/19/48/18/17/babyve10.png" alt="Champion 8">
+        <button onclick="choisirChampion(8)">Choisir</button>
+      </div>
+  <div class="champion">
+        <h3>Anakin</h3>
+        <img src="https://i83.servimg.com/u/f83/19/48/18/17/anakin10.png" alt="Champion 9">
+        <button onclick="choisirChampion(9)">Choisir</button>
+      </div>
+      <div class="champion">
+        <h3>Mario</h3>
+        <img src="https://i83.servimg.com/u/f83/19/48/18/17/mario10.png" alt="Champion 10">
+        <button onclick="choisirChampion(10)">Choisir</button>
+      </div>
+  <div class="champion">
+        <h3>Oblivion</h3>
+        <img src="https://i83.servimg.com/u/f83/19/48/18/17/oblivi10.png" alt="Champion 11">
+        <button onclick="choisirChampion(11)">Choisir</button>
+      </div>
+      <div class="champion">
+        <h3>Zamasu</h3>
+        <img src="https://i83.servimg.com/u/f83/19/48/18/17/zamasu10.png" alt="Champion 12">
+        <button onclick="choisirChampion(12)">Choisir</button>
+      </div>
+  <div class="champion">
+        <h3>Link</h3>
+        <img src="https://i83.servimg.com/u/f83/19/48/18/17/link10.png" alt="Champion 13">
+        <button onclick="choisirChampion(13)">Choisir</button>
+      </div>
+      <div class="champion">
+        <h3>Méchantes</h3>
+        <img src="https://i83.servimg.com/u/f83/19/48/18/17/malefi10.png" alt="Champion 14">
+        <button onclick="choisirChampion(14)">Choisir</button>
+      </div>
+<div class="champion">
+        <h3>Optimus</h3>
+        <img src="https://i83.servimg.com/u/f83/19/48/18/17/optimu10.png" alt="Champion 15">
+        <button onclick="choisirChampion(15)">Choisir</button>
+      </div>
+  <div class="champion">
+        <h3>Batman</h3>
+        <img src="https://i83.servimg.com/u/f83/19/48/18/17/batman11.png" alt="Champion 16">
+        <button onclick="choisirChampion(16)">Choisir</button>
+      </div>
+      <div class="champion">
+        <h3>Broly</h3>
+        <img src="https://i83.servimg.com/u/f83/19/48/18/17/broly10.png" alt="Champion 17">
+        <button onclick="choisirChampion(17)">Choisir</button>
+      </div>
+      <div class="champion">
+        <h3>Gaara</h3>
+        <img src="https://i83.servimg.com/u/f83/19/48/18/17/gaara10.png" alt="Champion 18">
+        <button onclick="choisirChampion(18)">Choisir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Choix de la difficulté -->
+  <div id="choix-difficulte" class="section hidden">
+    <h2>Choisissez la difficulté</h2>
+    <button onclick="choisirDifficulte('normal')">Normal</button>
+    <button onclick="choisirDifficulte('difficile')">Difficile</button>
+    <button onclick="choisirDifficulte('extreme')">Extrême</button>
+  </div>
+
+  <!-- Jeu -->
+  <div id="jeu" class="section hidden">
+    <h2>Match contre <span id="adversaire-nom"></span> - Difficulté : <span id="niveau-difficulte"></span></h2>
+    <div class="terrain" id="terrain">
+      <!-- Les adversaires seront ajoutés ici via JS -->
+    </div>
+    <div class="stat-form">
+      <h3>Entrez vos statistiques pour défier un adversaire</h3>
+      <p>Adversaires battus : <span id="score">0</span></p>
+    </div>
+  </div>
+
+  <!-- Section de fin de partie -->
+  <div id="fin-partie" class="section hidden">
+    <h2>Fin de la partie</h2>
+    <p id="message-fin"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+  <script>
+    const champions = [
+  {
+    nom: "Champion 1",
+    images: {
+      normal: "https://i83.servimg.com/u/f83/19/48/18/17/cronal12.jpg",
+      difficile: "https://i83.servimg.com/u/f83/19/48/18/17/cronal13.jpg",
+      extreme: "https://i83.servimg.com/u/f83/19/48/18/17/cronal14.jpg"
+    },
+    positions: [
+        { zone: "gardien", label: "Gardien", stats: { normal: { valeur: 183, statNecessaire: "Mana et Popularité" }, difficile: { valeur: 183, statNecessaire: "Mana et Popularité" }, extreme: { valeur: 94, statNecessaire: "Force" } } },
+      { zone: "defenseur1", label: "Défenseur 1", stats: { normal: { valeur: 180, statNecessaire: "Force et Mana" }, difficile: { valeur: 188, statNecessaire: "Vitesse et Popularité" }, extreme: { valeur: 80, statNecessaire: "mana" } } },
+     { zone: "defenseur2", label: "Défenseur 2", stats: { normal: { valeur: 93, statNecessaire: "Vitesse" }, difficile: { valeur: 93, statNecessaire: "Force" }, extreme: { valeur: 188, statNecessaire: "Force et Popularité" } } },
+{ zone: "defenseur3", label: "Défenseur 3", stats: { normal: { valeur: 90, statNecessaire: "Force" }, difficile: { valeur: 93, statNecessaire: "Vitesse" }, extreme: { valeur: 95, statNecessaire: "Popularité" } } },
+{ zone: "defenseur4", label: "Défenseur 4", stats: { normal: { valeur: 90, statNecessaire: "Popularité" }, difficile: { valeur: 92, statNecessaire: "Vitesse" }, extreme: { valeur: 185, statNecessaire: "Mana et Vitesse" } } },
+{ zone: "milieu1", label: "Milieu 1", stats: { normal: { valeur: 92, statNecessaire: "Mana" }, difficile: { valeur: 185, statNecessaire: "Mana et Popularité" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+     { zone: "milieu2", label: "Milieu 2", stats: { normal: { valeur: 180, statNecessaire: "Force et Mana" }, difficile: { valeur: 186, statNecessaire: "Mana et Popularité" }, extreme: { valeur: 94, statNecessaire: "Mana" } } },
+{ zone: "milieu3", label: "Milieu 3", stats: { normal: { valeur: 90, statNecessaire: "Mana" }, difficile: { valeur: 93, statNecessaire: "Mana" }, extreme: { valeur: 94, statNecessaire: "Vitesse" } } },
+{ zone: "milieu4", label: "Milieu 4", stats: { normal: { valeur: 173, statNecessaire: "Force et Mana" }, difficile: { valeur: 93, statNecessaire: "Popularité" }, extreme: { valeur: 186, statNecessaire: "Force et Mana" } } },
+{ zone: "attaquant1", label: "Attaquant 1", stats: { normal: { valeur: 177, statNecessaire: "Force et Popularité" }, difficile: { valeur: 183, statNecessaire: "Mana et Popularité" }, extreme: { valeur: 365, statNecessaire: "Toutes" } } },
+     { zone: "attaquant2", label: "Attaquant 2", stats: { normal: { valeur: 88, statNecessaire: "Force" }, difficile: { valeur: 93, statNecessaire: "Force" }, extreme: { valeur: 365, statNecessaire: "Toutes" } } },
+    ]
+  },
+  {
+    nom: "Champion 2",
+    images: {
+      normal: "https://i83.servimg.com/u/f83/19/48/18/17/zidane15.jpg",
+      difficile: "https://i83.servimg.com/u/f83/19/48/18/17/zidane16.jpg",
+      extreme: "https://i83.servimg.com/u/f83/19/48/18/17/zidane14.jpg"
+    },
+    positions: [
+        { zone: "gardien", label: "Gardien", stats: { normal: { valeur: 90, statNecessaire: "Mana" }, difficile: { valeur: 180, statNecessaire: "Force et Mana" }, extreme: { valeur: 94, statNecessaire: "Vitesse" } } },
+      { zone: "defenseur1", label: "Défenseur 1", stats: { normal: { valeur: 180, statNecessaire: "Force et Mana" }, difficile: { valeur: 188, statNecessaire: "Mana et Popularité" }, extreme: { valeur: 93, statNecessaire: "mana" } } },
+     { zone: "defenseur2", label: "Défenseur 2", stats: { normal: { valeur: 171, statNecessaire: "Mana et Vitesse" }, difficile: { valeur: 93, statNecessaire: "Popularité" }, extreme: { valeur: 94, statNecessaire: "Popularité" } } },
+{ zone: "defenseur3", label: "Défenseur 3", stats: { normal: { valeur: 171, statNecessaire: "Mana et Vitesse" }, difficile: { valeur: 183, statNecessaire: "Mana et Vitesse" }, extreme: { valeur: 184, statNecessaire: "Force et Mana" } } },
+{ zone: "defenseur4", label: "Défenseur 4", stats: { normal: { valeur: 90, statNecessaire: "Popularité" }, difficile: { valeur: 90, statNecessaire: "Force" }, extreme: { valeur: 184, statNecessaire: "Mana et Vitesse" } } },
+{ zone: "milieu1", label: "Milieu 1", stats: { normal: { valeur: 92, statNecessaire: "Vitesse" }, difficile: { valeur: 93, statNecessaire: "Force" }, extreme: { valeur: 93, statNecessaire: "Vitesse" } } },
+     { zone: "milieu2", label: "Milieu 2", stats: { normal: { valeur: 90, statNecessaire: "Mana" }, difficile: { valeur: 90, statNecessaire: "Force" }, extreme: { valeur: 186, statNecessaire: "Force et Vitesse" } } },
+{ zone: "milieu3", label: "Milieu 3", stats: { normal: { valeur: 92, statNecessaire: "Mana" }, difficile: { valeur: 93, statNecessaire: "Mana" }, extreme: { valeur: 94, statNecessaire: "Popularité" } } },
+{ zone: "milieu4", label: "Milieu 4", stats: { normal: { valeur: 173, statNecessaire: "Mana et Vitesse" }, difficile: { valeur: 92, statNecessaire: "Mana" }, extreme: { valeur: 95, statNecessaire: "Mana" } } },
+{ zone: "attaquant1", label: "Attaquant 1", stats: { normal: { valeur: 92, statNecessaire: "Popularité" }, difficile: { valeur: 188, statNecessaire: "Force et Popularité" }, extreme: { valeur: 366, statNecessaire: "Toutes" } } },
+     { zone: "attaquant2", label: "Attaquant 2", stats: { normal: { valeur: 92, statNecessaire: "Force" }, difficile: { valeur: 93, statNecessaire: "Force" }, extreme: { valeur: 95, statNecessaire: "Force" } } },
+    ]
+  },
+{
+    nom: "Champion 3",
+    images: {
+      normal: "https://i83.servimg.com/u/f83/19/48/18/17/luffy411.jpg",
+      difficile: "https://i83.servimg.com/u/f83/19/48/18/17/luffy310.jpg",
+      extreme: "https://i83.servimg.com/u/f83/19/48/18/17/luffy210.jpg"
+    },
+    positions: [
+        { zone: "gardien", label: "Gardien", stats: { normal: { valeur: 92, statNecessaire: "Force" }, difficile: { valeur: 93, statNecessaire: "Popularité" }, extreme: { valeur: 94, statNecessaire: "Vitesse" } } },
+      { zone: "defenseur1", label: "Défenseur 1", stats: { normal: { valeur: 90, statNecessaire: "Force" }, difficile: { valeur: 93, statNecessaire: "Mana" }, extreme: { valeur: 95, statNecessaire: "mana" } } },
+     { zone: "defenseur2", label: "Défenseur 2", stats: { normal: { valeur: 176, statNecessaire: "Force et Mana" }, difficile: { valeur: 352, statNecessaire: "Toutes" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+{ zone: "defenseur3", label: "Défenseur 3", stats: { normal: { valeur: 92, statNecessaire: "Mana" }, difficile: { valeur: 92, statNecessaire: "Force" }, extreme: { valeur: 94, statNecessaire: "Mana" } } },
+{ zone: "defenseur4", label: "Défenseur 4", stats: { normal: { valeur: 90, statNecessaire: "Vitesse" }, difficile: { valeur: 92, statNecessaire: "Mana" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+{ zone: "milieu1", label: "Milieu 1", stats: { normal: { valeur: 93, statNecessaire: "Vitesse" }, difficile: { valeur: 93, statNecessaire: "Force" }, extreme: { valeur: 95, statNecessaire: "Popularité" } } },
+     { zone: "milieu2", label: "Milieu 2", stats: { normal: { valeur: 92, statNecessaire: "Mana" }, difficile: { valeur: 90, statNecessaire: "Vitesse" }, extreme: { valeur: 93, statNecessaire: "Mana" } } },
+{ zone: "milieu3", label: "Milieu 3", stats: { normal: { valeur: 90, statNecessaire: "Force" }, difficile: { valeur: 93, statNecessaire: "Mana" }, extreme: { valeur: 92, statNecessaire: "Vitesse" } } },
+{ zone: "milieu4", label: "Milieu 4", stats: { normal: { valeur: 180, statNecessaire: "Mana et Popularité" }, difficile: { valeur: 92, statNecessaire: "Vitesse" }, extreme: { valeur: 95, statNecessaire: "Mana" } } },
+{ zone: "attaquant1", label: "Attaquant 1", stats: { normal: { valeur: 93, statNecessaire: "Force" }, difficile: { valeur: 93, statNecessaire: "Force" }, extreme: { valeur: 185, statNecessaire: "Mana et Popularité" } } },
+     { zone: "attaquant2", label: "Attaquant 2", stats: { normal: { valeur: 173, statNecessaire: "Force et Mana" }, difficile: { valeur: 94, statNecessaire: "Vitesse" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+    ]
+  },
+{
+    nom: "Champion 4",
+    images: {
+      normal: "https://i83.servimg.com/u/f83/19/48/18/17/naruto29.jpg",
+      difficile: "https://i83.servimg.com/u/f83/19/48/18/17/naruto28.jpg",
+      extreme: "https://i83.servimg.com/u/f83/19/48/18/17/naruto30.jpg"
+    },
+    positions: [
+        { zone: "gardien", label: "Gardien", stats: { normal: { valeur: 175, statNecessaire: "Mana et Popularité" }, difficile: { valeur: 93, statNecessaire: "Mana" }, extreme: { valeur: 94, statNecessaire: "Vitesse" } } },
+      { zone: "defenseur1", label: "Défenseur 1", stats: { normal: { valeur: 90, statNecessaire: "Force" }, difficile: { valeur: 185, statNecessaire: "Force et Mana" }, extreme: { valeur: 95, statNecessaire: "mana" } } },
+     { zone: "defenseur2", label: "Défenseur 2", stats: { normal: { valeur: 89, statNecessaire: "Popularité" }, difficile: { valeur: 92, statNecessaire: "Force" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+{ zone: "defenseur3", label: "Défenseur 3", stats: { normal: { valeur: 92, statNecessaire: "Popularité" }, difficile: { valeur: 93, statNecessaire: "Force" }, extreme: { valeur: 94, statNecessaire: "Mana" } } },
+{ zone: "defenseur4", label: "Défenseur 4", stats: { normal: { valeur: 90, statNecessaire: "Vitesse" }, difficile: { valeur: 93, statNecessaire: "Vitesse" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+{ zone: "milieu1", label: "Milieu 1", stats: { normal: { valeur: 175, statNecessaire: "Force et Vitesse" }, difficile: { valeur: 93, statNecessaire: "Force" }, extreme: { valeur: 95, statNecessaire: "Popularité" } } },
+     { zone: "milieu2", label: "Milieu 2", stats: { normal: { valeur: 92, statNecessaire: "Mana" }, difficile: { valeur: 92, statNecessaire: "Popularité" }, extreme: { valeur: 93, statNecessaire: "Mana" } } },
+{ zone: "milieu3", label: "Milieu 3", stats: { normal: { valeur: 90, statNecessaire: "Mana" }, difficile: { valeur: 185, statNecessaire: "Force et Mana" }, extreme: { valeur: 92, statNecessaire: "Vitesse" } } },
+{ zone: "milieu4", label: "Milieu 4", stats: { normal: { valeur: 88, statNecessaire: "Popularité" }, difficile: { valeur: 93, statNecessaire: "Popularité" }, extreme: { valeur: 95, statNecessaire: "Mana" } } },
+{ zone: "attaquant1", label: "Attaquant 1", stats: { normal: { valeur: 93, statNecessaire: "Vitesse" }, difficile: { valeur: 93, statNecessaire: "Mana" }, extreme: { valeur: 185, statNecessaire: "Mana et Popularité" } } },
+     { zone: "attaquant2", label: "Attaquant 2", stats: { normal: { valeur: 177, statNecessaire: "Force et Mana" }, difficile: { valeur: 94, statNecessaire: "Vitesse" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+    ]
+  },
+{
+    nom: "Champion 5",
+    images: {
+      normal: "https://i83.servimg.com/u/f83/19/48/18/17/ulltim10.jpg",
+      difficile: "https://i83.servimg.com/u/f83/19/48/18/17/spidey13.jpg",
+      extreme: "https://i83.servimg.com/u/f83/19/48/18/17/supspi10.jpg"
+    },
+    positions: [
+{ zone: "gardien", label: "Gardien", stats: { normal: { valeur: 92, statNecessaire: "Force" }, difficile: { valeur: 93, statNecessaire: "Popularité" }, extreme: { valeur: 94, statNecessaire: "Vitesse" } } },
+      { zone: "defenseur1", label: "Défenseur 1", stats: { normal: { valeur: 90, statNecessaire: "Force" }, difficile: { valeur: 93, statNecessaire: "Mana" }, extreme: { valeur: 95, statNecessaire: "mana" } } },
+     { zone: "defenseur2", label: "Défenseur 2", stats: { normal: { valeur: 176, statNecessaire: "Force et Mana" }, difficile: { valeur: 352, statNecessaire: "Toutes" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+{ zone: "defenseur3", label: "Défenseur 3", stats: { normal: { valeur: 92, statNecessaire: "Mana" }, difficile: { valeur: 92, statNecessaire: "Force" }, extreme: { valeur: 94, statNecessaire: "Mana" } } },
+{ zone: "defenseur4", label: "Défenseur 4", stats: { normal: { valeur: 90, statNecessaire: "Vitesse" }, difficile: { valeur: 92, statNecessaire: "Mana" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+{ zone: "milieu1", label: "Milieu 1", stats: { normal: { valeur: 175, statNecessaire: "Force et Vitesse" }, difficile: { valeur: 93, statNecessaire: "Force" }, extreme: { valeur: 95, statNecessaire: "Popularité" } } },
+     { zone: "milieu2", label: "Milieu 2", stats: { normal: { valeur: 92, statNecessaire: "Mana" }, difficile: { valeur: 92, statNecessaire: "Popularité" }, extreme: { valeur: 93, statNecessaire: "Mana" } } },
+{ zone: "milieu3", label: "Milieu 3", stats: { normal: { valeur: 90, statNecessaire: "Mana" }, difficile: { valeur: 185, statNecessaire: "Force et Mana" }, extreme: { valeur: 92, statNecessaire: "Vitesse" } } },
+{ zone: "milieu4", label: "Milieu 4", stats: { normal: { valeur: 88, statNecessaire: "Popularité" }, difficile: { valeur: 93, statNecessaire: "Popularité" }, extreme: { valeur: 95, statNecessaire: "Mana" } } },
+{ zone: "attaquant1", label: "Attaquant 1", stats: { normal: { valeur: 92, statNecessaire: "Popularité" }, difficile: { valeur: 188, statNecessaire: "Force et Popularité" }, extreme: { valeur: 366, statNecessaire: "Toutes" } } },
+     { zone: "attaquant2", label: "Attaquant 2", stats: { normal: { valeur: 92, statNecessaire: "Force" }, difficile: { valeur: 93, statNecessaire: "Force" }, extreme: { valeur: 95, statNecessaire: "Force" } } },
+    ]
+  },
+{
+    nom: "Champion 6",
+    images: {
+      normal: "https://i83.servimg.com/u/f83/19/48/18/17/sakura11.jpg",
+      difficile: "https://i83.servimg.com/u/f83/19/48/18/17/sakura12.jpg",
+      extreme: "https://i83.servimg.com/u/f83/19/48/18/17/sakura13.jpg"
+    },
+    positions: [
+{ zone: "gardien", label: "Gardien", stats: { normal: { valeur: 92, statNecessaire: "Force" }, difficile: { valeur: 93, statNecessaire: "Popularité" }, extreme: { valeur: 94, statNecessaire: "Vitesse" } } },
+      { zone: "defenseur1", label: "Défenseur 1", stats: { normal: { valeur: 90, statNecessaire: "Force" }, difficile: { valeur: 93, statNecessaire: "Mana" }, extreme: { valeur: 95, statNecessaire: "mana" } } },
+     { zone: "defenseur2", label: "Défenseur 2", stats: { normal: { valeur: 176, statNecessaire: "Force et Mana" }, difficile: { valeur: 352, statNecessaire: "Toutes" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+{ zone: "defenseur3", label: "Défenseur 3", stats: { normal: { valeur: 92, statNecessaire: "Mana" }, difficile: { valeur: 92, statNecessaire: "Force" }, extreme: { valeur: 94, statNecessaire: "Mana" } } },
+{ zone: "defenseur4", label: "Défenseur 4", stats: { normal: { valeur: 90, statNecessaire: "Popularité" }, difficile: { valeur: 92, statNecessaire: "Vitesse" }, extreme: { valeur: 185, statNecessaire: "Mana et Vitesse" } } },
+{ zone: "milieu1", label: "Milieu 1", stats: { normal: { valeur: 92, statNecessaire: "Mana" }, difficile: { valeur: 185, statNecessaire: "Mana et Popularité" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+     { zone: "milieu2", label: "Milieu 2", stats: { normal: { valeur: 180, statNecessaire: "Force et Mana" }, difficile: { valeur: 186, statNecessaire: "Mana et Popularité" }, extreme: { valeur: 94, statNecessaire: "Mana" } } },
+{ zone: "milieu3", label: "Milieu 3", stats: { normal: { valeur: 90, statNecessaire: "Mana" }, difficile: { valeur: 93, statNecessaire: "Mana" }, extreme: { valeur: 94, statNecessaire: "Vitesse" } } },
+{ zone: "milieu4", label: "Milieu 4", stats: { normal: { valeur: 173, statNecessaire: "Force et Mana" }, difficile: { valeur: 93, statNecessaire: "Popularité" }, extreme: { valeur: 186, statNecessaire: "Force et Mana" } } },
+{ zone: "attaquant1", label: "Attaquant 1", stats: { normal: { valeur: 93, statNecessaire: "Vitesse" }, difficile: { valeur: 93, statNecessaire: "Mana" }, extreme: { valeur: 188, statNecessaire: "Mana et Popularité" } } },
+     { zone: "attaquant2", label: "Attaquant 2", stats: { normal: { valeur: 177, statNecessaire: "Force et Mana" }, difficile: { valeur: 94, statNecessaire: "Vitesse" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+    ]
+  },
+{
+    nom: "Champion 7",
+    images: {
+      normal: "https://i83.servimg.com/u/f83/19/48/18/17/metals11.jpg",
+      difficile: "https://i83.servimg.com/u/f83/19/48/18/17/sonic311.jpg",
+      extreme: "https://i83.servimg.com/u/f83/19/48/18/17/sonic212.jpg"
+    },
+    positions: [
+{ zone: "gardien", label: "Gardien", stats: { normal: { valeur: 92, statNecessaire: "Force" }, difficile: { valeur: 93, statNecessaire: "Popularité" }, extreme: { valeur: 94, statNecessaire: "Vitesse" } } },
+      { zone: "defenseur1", label: "Défenseur 1", stats: { normal: { valeur: 90, statNecessaire: "Force" }, difficile: { valeur: 93, statNecessaire: "Mana" }, extreme: { valeur: 95, statNecessaire: "mana" } } },
+     { zone: "defenseur2", label: "Défenseur 2", stats: { normal: { valeur: 176, statNecessaire: "Force et Mana" }, difficile: { valeur: 352, statNecessaire: "Toutes" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+{ zone: "defenseur3", label: "Défenseur 3", stats: { normal: { valeur: 92, statNecessaire: "Mana" }, difficile: { valeur: 92, statNecessaire: "Force" }, extreme: { valeur: 94, statNecessaire: "Mana" } } },
+{ zone: "defenseur4", label: "Défenseur 4", stats: { normal: { valeur: 90, statNecessaire: "Popularité" }, difficile: { valeur: 92, statNecessaire: "Vitesse" }, extreme: { valeur: 185, statNecessaire: "Mana et Vitesse" } } },
+{ zone: "milieu1", label: "Milieu 1", stats: { normal: { valeur: 92, statNecessaire: "Mana" }, difficile: { valeur: 185, statNecessaire: "Mana et Popularité" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+     { zone: "milieu2", label: "Milieu 2", stats: { normal: { valeur: 180, statNecessaire: "Force et Mana" }, difficile: { valeur: 186, statNecessaire: "Mana et Popularité" }, extreme: { valeur: 94, statNecessaire: "Mana" } } },
+{ zone: "milieu3", label: "Milieu 3", stats: { normal: { valeur: 90, statNecessaire: "Mana" }, difficile: { valeur: 93, statNecessaire: "Mana" }, extreme: { valeur: 94, statNecessaire: "Vitesse" } } },
+{ zone: "milieu4", label: "Milieu 4", stats: { normal: { valeur: 173, statNecessaire: "Force et Mana" }, difficile: { valeur: 93, statNecessaire: "Popularité" }, extreme: { valeur: 186, statNecessaire: "Force et Mana" } } },
+{ zone: "attaquant1", label: "Attaquant 1", stats: { normal: { valeur: 93, statNecessaire: "Vitesse" }, difficile: { valeur: 93, statNecessaire: "Mana" }, extreme: { valeur: 185, statNecessaire: "Mana et Popularité" } } },
+     { zone: "attaquant2", label: "Attaquant 2", stats: { normal: { valeur: 177, statNecessaire: "Force et Mana" }, difficile: { valeur: 94, statNecessaire: "Vitesse" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+    ]
+  },
+{
+    nom: "Champion 8",
+    images: {
+      normal: "https://i83.servimg.com/u/f83/19/48/18/17/babyve12.jpg",
+      difficile: "https://i83.servimg.com/u/f83/19/48/18/17/babyve11.jpg",
+      extreme: "https://i83.servimg.com/u/f83/19/48/18/17/babyve10.jpg"
+    },
+    positions: [
+{ zone: "gardien", label: "Gardien", stats: { normal: { valeur: 92, statNecessaire: "Force" }, difficile: { valeur: 93, statNecessaire: "Popularité" }, extreme: { valeur: 94, statNecessaire: "Vitesse" } } },
+      { zone: "defenseur1", label: "Défenseur 1", stats: { normal: { valeur: 90, statNecessaire: "Force" }, difficile: { valeur: 93, statNecessaire: "Mana" }, extreme: { valeur: 95, statNecessaire: "mana" } } },
+     { zone: "defenseur2", label: "Défenseur 2", stats: { normal: { valeur: 176, statNecessaire: "Force et Mana" }, difficile: { valeur: 352, statNecessaire: "Toutes" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+{ zone: "defenseur3", label: "Défenseur 3", stats: { normal: { valeur: 92, statNecessaire: "Mana" }, difficile: { valeur: 92, statNecessaire: "Force" }, extreme: { valeur: 94, statNecessaire: "Mana" } } },
+{ zone: "defenseur4", label: "Défenseur 4", stats: { normal: { valeur: 90, statNecessaire: "Vitesse" }, difficile: { valeur: 92, statNecessaire: "Mana" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+{ zone: "milieu1", label: "Milieu 1", stats: { normal: { valeur: 175, statNecessaire: "Force et Vitesse" }, difficile: { valeur: 93, statNecessaire: "Force" }, extreme: { valeur: 95, statNecessaire: "Popularité" } } },
+     { zone: "milieu2", label: "Milieu 2", stats: { normal: { valeur: 92, statNecessaire: "Mana" }, difficile: { valeur: 92, statNecessaire: "Popularité" }, extreme: { valeur: 93, statNecessaire: "Mana" } } },
+{ zone: "milieu3", label: "Milieu 3", stats: { normal: { valeur: 90, statNecessaire: "Mana" }, difficile: { valeur: 93, statNecessaire: "Mana" }, extreme: { valeur: 94, statNecessaire: "Vitesse" } } },
+{ zone: "milieu4", label: "Milieu 4", stats: { normal: { valeur: 173, statNecessaire: "Force et Mana" }, difficile: { valeur: 93, statNecessaire: "Popularité" }, extreme: { valeur: 186, statNecessaire: "Force et Mana" } } },
+{ zone: "attaquant1", label: "Attaquant 1", stats: { normal: { valeur: 177, statNecessaire: "Force et Popularité" }, difficile: { valeur: 183, statNecessaire: "Mana et Popularité" }, extreme: { valeur: 365, statNecessaire: "Toutes" } } },
+{ zone: "attaquant2", label: "Attaquant 2", stats: { normal: { valeur: 177, statNecessaire: "Force et Mana" }, difficile: { valeur: 94, statNecessaire: "Vitesse" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+    ]
+  },
+{
+    nom: "Champion 9",
+    images: {
+      normal: "https://i83.servimg.com/u/f83/19/48/18/17/padmea10.jpg",
+      difficile: "https://i83.servimg.com/u/f83/19/48/18/17/obiwan15.jpg",
+      extreme: "https://i83.servimg.com/u/f83/19/48/18/17/anakin14.jpg"
+    },
+    positions: [
+{ zone: "gardien", label: "Gardien", stats: { normal: { valeur: 92, statNecessaire: "Force" }, difficile: { valeur: 93, statNecessaire: "Popularité" }, extreme: { valeur: 94, statNecessaire: "Vitesse" } } },
+      { zone: "defenseur1", label: "Défenseur 1", stats: { normal: { valeur: 90, statNecessaire: "Force" }, difficile: { valeur: 93, statNecessaire: "Mana" }, extreme: { valeur: 95, statNecessaire: "mana" } } },
+     { zone: "defenseur2", label: "Défenseur 2", stats: { normal: { valeur: 176, statNecessaire: "Force et Mana" }, difficile: { valeur: 352, statNecessaire: "Toutes" }, extreme: { valeur: 93, statNecessaire: "Mana" } } },
+{ zone: "defenseur3", label: "Défenseur 3", stats: { normal: { valeur: 92, statNecessaire: "Mana" }, difficile: { valeur: 92, statNecessaire: "Force" }, extreme: { valeur: 94, statNecessaire: "Mana" } } },
+{ zone: "defenseur4", label: "Défenseur 4", stats: { normal: { valeur: 90, statNecessaire: "Vitesse" }, difficile: { valeur: 92, statNecessaire: "Mana" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+{ zone: "milieu1", label: "Milieu 1", stats: { normal: { valeur: 175, statNecessaire: "Force et Vitesse" }, difficile: { valeur: 93, statNecessaire: "Popularité" }, extreme: { valeur: 95, statNecessaire: "Popularité" } } },
+     { zone: "milieu2", label: "Milieu 2", stats: { normal: { valeur: 92, statNecessaire: "Mana" }, difficile: { valeur: 92, statNecessaire: "Popularité" }, extreme: { valeur: 93, statNecessaire: "Mana" } } },
+{ zone: "milieu3", label: "Milieu 3", stats: { normal: { valeur: 90, statNecessaire: "Mana" }, difficile: { valeur: 185, statNecessaire: "Force et Mana" }, extreme: { valeur: 92, statNecessaire: "Vitesse" } } },
+{ zone: "milieu4", label: "Milieu 4", stats: { normal: { valeur: 88, statNecessaire: "Popularité" }, difficile: { valeur: 93, statNecessaire: "Popularité" }, extreme: { valeur: 95, statNecessaire: "Mana" } } },
+{ zone: "attaquant1", label: "Attaquant 1", stats: { normal: { valeur: 177, statNecessaire: "Force et Popularité" }, difficile: { valeur: 183, statNecessaire: "Mana et Popularité" }, extreme: { valeur: 365, statNecessaire: "Toutes" } } },
+{ zone: "attaquant2", label: "Attaquant 2", stats: { normal: { valeur: 177, statNecessaire: "Force et Mana" }, difficile: { valeur: 94, statNecessaire: "Vitesse" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+    ]
+  },
+{
+    nom: "Champion 10",
+    images: {
+      normal: "https://i83.servimg.com/u/f83/19/48/18/17/mario311.jpg",
+      difficile: "https://i83.servimg.com/u/f83/19/48/18/17/mario211.jpg",
+      extreme: "https://i83.servimg.com/u/f83/19/48/18/17/superm10.jpg"
+    },
+    positions: [
+        { zone: "gardien", label: "Gardien", stats: { normal: { valeur: 90, statNecessaire: "Mana" }, difficile: { valeur: 180, statNecessaire: "Force et Mana" }, extreme: { valeur: 94, statNecessaire: "Vitesse" } } },
+      { zone: "defenseur1", label: "Défenseur 1", stats: { normal: { valeur: 180, statNecessaire: "Force et Mana" }, difficile: { valeur: 188, statNecessaire: "Mana et Popularité" }, extreme: { valeur: 93, statNecessaire: "mana" } } },
+     { zone: "defenseur2", label: "Défenseur 2", stats: { normal: { valeur: 171, statNecessaire: "Mana et Vitesse" }, difficile: { valeur: 93, statNecessaire: "Popularité" }, extreme: { valeur: 94, statNecessaire: "Popularité" } } },
+{ zone: "defenseur3", label: "Défenseur 3", stats: { normal: { valeur: 171, statNecessaire: "Mana et Vitesse" }, difficile: { valeur: 183, statNecessaire: "Mana et Vitesse" }, extreme: { valeur: 184, statNecessaire: "Force et Mana" } } },
+{ zone: "defenseur4", label: "Défenseur 4", stats: { normal: { valeur: 90, statNecessaire: "Popularité" }, difficile: { valeur: 90, statNecessaire: "Force" }, extreme: { valeur: 184, statNecessaire: "Mana et Vitesse" } } },
+{ zone: "milieu1", label: "Milieu 1", stats: { normal: { valeur: 92, statNecessaire: "Vitesse" }, difficile: { valeur: 93, statNecessaire: "Force" }, extreme: { valeur: 93, statNecessaire: "Vitesse" } } },
+     { zone: "milieu2", label: "Milieu 2", stats: { normal: { valeur: 90, statNecessaire: "Mana" }, difficile: { valeur: 90, statNecessaire: "Force" }, extreme: { valeur: 186, statNecessaire: "Force et Vitesse" } } },
+{ zone: "milieu3", label: "Milieu 3", stats: { normal: { valeur: 92, statNecessaire: "Mana" }, difficile: { valeur: 93, statNecessaire: "Mana" }, extreme: { valeur: 94, statNecessaire: "Popularité" } } },
+{ zone: "milieu4", label: "Milieu 4", stats: { normal: { valeur: 173, statNecessaire: "Mana et Vitesse" }, difficile: { valeur: 92, statNecessaire: "Mana" }, extreme: { valeur: 95, statNecessaire: "Mana" } } },
+{ zone: "attaquant1", label: "Attaquant 1", stats: { normal: { valeur: 92, statNecessaire: "Popularité" }, difficile: { valeur: 188, statNecessaire: "Force et Popularité" }, extreme: { valeur: 366, statNecessaire: "Toutes" } } },
+     { zone: "attaquant2", label: "Attaquant 2", stats: { normal: { valeur: 92, statNecessaire: "Force" }, difficile: { valeur: 93, statNecessaire: "Force" }, extreme: { valeur: 95, statNecessaire: "Force" } } },
+    ]
+  },
+{
+    nom: "Champion 11",
+    images: {
+      normal: "https://i83.servimg.com/u/f83/19/48/18/17/oblivi10.jpg",
+      difficile: "https://i83.servimg.com/u/f83/19/48/18/17/oblivi12.jpg",
+      extreme: "https://i83.servimg.com/u/f83/19/48/18/17/oblivi11.jpg"
+    },
+    positions: [
+{ zone: "gardien", label: "Gardien", stats: { normal: { valeur: 92, statNecessaire: "Force" }, difficile: { valeur: 93, statNecessaire: "Popularité" }, extreme: { valeur: 94, statNecessaire: "Vitesse" } } },
+      { zone: "defenseur1", label: "Défenseur 1", stats: { normal: { valeur: 90, statNecessaire: "Force" }, difficile: { valeur: 93, statNecessaire: "Mana" }, extreme: { valeur: 95, statNecessaire: "mana" } } },
+     { zone: "defenseur2", label: "Défenseur 2", stats: { normal: { valeur: 176, statNecessaire: "Force et Mana" }, difficile: { valeur: 352, statNecessaire: "Toutes" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+{ zone: "defenseur3", label: "Défenseur 3", stats: { normal: { valeur: 92, statNecessaire: "Mana" }, difficile: { valeur: 92, statNecessaire: "Force" }, extreme: { valeur: 94, statNecessaire: "Mana" } } },
+{ zone: "defenseur4", label: "Défenseur 4", stats: { normal: { valeur: 90, statNecessaire: "Vitesse" }, difficile: { valeur: 92, statNecessaire: "Mana" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+{ zone: "milieu1", label: "Milieu 1", stats: { normal: { valeur: 175, statNecessaire: "Force et Vitesse" }, difficile: { valeur: 93, statNecessaire: "Force" }, extreme: { valeur: 95, statNecessaire: "Popularité" } } },
+     { zone: "milieu2", label: "Milieu 2", stats: { normal: { valeur: 92, statNecessaire: "Mana" }, difficile: { valeur: 92, statNecessaire: "Popularité" }, extreme: { valeur: 93, statNecessaire: "Mana" } } },
+{ zone: "milieu3", label: "Milieu 3", stats: { normal: { valeur: 90, statNecessaire: "Mana" }, difficile: { valeur: 93, statNecessaire: "Mana" }, extreme: { valeur: 94, statNecessaire: "Vitesse" } } },
+{ zone: "milieu4", label: "Milieu 4", stats: { normal: { valeur: 173, statNecessaire: "Force et Mana" }, difficile: { valeur: 93, statNecessaire: "Popularité" }, extreme: { valeur: 186, statNecessaire: "Force et Mana" } } },
+{ zone: "attaquant1", label: "Attaquant 1", stats: { normal: { valeur: 177, statNecessaire: "Force et Popularité" }, difficile: { valeur: 183, statNecessaire: "Mana et Popularité" }, extreme: { valeur: 365, statNecessaire: "Toutes" } } },
+{ zone: "attaquant2", label: "Attaquant 2", stats: { normal: { valeur: 177, statNecessaire: "Force et Mana" }, difficile: { valeur: 94, statNecessaire: "Vitesse" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+    ]
+  },
+{
+    nom: "Champion 12",
+    images: {
+      normal: "https://i83.servimg.com/u/f83/19/48/18/17/zamabl10.jpg",
+      difficile: "https://i83.servimg.com/u/f83/19/48/18/17/zamasu11.jpg",
+      extreme: "https://i83.servimg.com/u/f83/19/48/18/17/zamasu12.jpg"
+    },
+    positions: [
+        { zone: "gardien", label: "Gardien", stats: { normal: { valeur: 175, statNecessaire: "Mana et Popularité" }, difficile: { valeur: 93, statNecessaire: "Mana" }, extreme: { valeur: 94, statNecessaire: "Vitesse" } } },
+      { zone: "defenseur1", label: "Défenseur 1", stats: { normal: { valeur: 90, statNecessaire: "Force" }, difficile: { valeur: 185, statNecessaire: "Force et Mana" }, extreme: { valeur: 95, statNecessaire: "mana" } } },
+     { zone: "defenseur2", label: "Défenseur 2", stats: { normal: { valeur: 89, statNecessaire: "Popularité" }, difficile: { valeur: 92, statNecessaire: "Force" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+{ zone: "defenseur3", label: "Défenseur 3", stats: { normal: { valeur: 92, statNecessaire: "Popularité" }, difficile: { valeur: 93, statNecessaire: "Force" }, extreme: { valeur: 94, statNecessaire: "Mana" } } },
+{ zone: "defenseur4", label: "Défenseur 4", stats: { normal: { valeur: 90, statNecessaire: "Vitesse" }, difficile: { valeur: 93, statNecessaire: "Vitesse" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+{ zone: "milieu1", label: "Milieu 1", stats: { normal: { valeur: 175, statNecessaire: "Force et Vitesse" }, difficile: { valeur: 93, statNecessaire: "Force" }, extreme: { valeur: 95, statNecessaire: "Popularité" } } },
+     { zone: "milieu2", label: "Milieu 2", stats: { normal: { valeur: 92, statNecessaire: "Mana" }, difficile: { valeur: 92, statNecessaire: "Popularité" }, extreme: { valeur: 93, statNecessaire: "Mana" } } },
+{ zone: "milieu3", label: "Milieu 3", stats: { normal: { valeur: 90, statNecessaire: "Mana" }, difficile: { valeur: 185, statNecessaire: "Force et Mana" }, extreme: { valeur: 92, statNecessaire: "Vitesse" } } },
+{ zone: "milieu4", label: "Milieu 4", stats: { normal: { valeur: 88, statNecessaire: "Popularité" }, difficile: { valeur: 93, statNecessaire: "Popularité" }, extreme: { valeur: 95, statNecessaire: "Mana" } } },
+{ zone: "attaquant1", label: "Attaquant 1", stats: { normal: { valeur: 93, statNecessaire: "Vitesse" }, difficile: { valeur: 93, statNecessaire: "Mana" }, extreme: { valeur: 185, statNecessaire: "Mana et Popularité" } } },
+     { zone: "attaquant2", label: "Attaquant 2", stats: { normal: { valeur: 177, statNecessaire: "Force et Mana" }, difficile: { valeur: 94, statNecessaire: "Vitesse" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+    ]
+  },
+{
+    nom: "Champion 13",
+    images: {
+      normal: "https://i83.servimg.com/u/f83/19/48/18/17/link_t10.jpg",
+      difficile: "https://i83.servimg.com/u/f83/19/48/18/17/dark_l10.jpg",
+      extreme: "https://i83.servimg.com/u/f83/19/48/18/17/oni_li10.jpg"
+    },
+    positions: [
+        { zone: "gardien", label: "Gardien", stats: { normal: { valeur: 175, statNecessaire: "Mana et Popularité" }, difficile: { valeur: 93, statNecessaire: "Mana" }, extreme: { valeur: 94, statNecessaire: "Vitesse" } } },
+      { zone: "defenseur1", label: "Défenseur 1", stats: { normal: { valeur: 90, statNecessaire: "Force" }, difficile: { valeur: 185, statNecessaire: "Force et Mana" }, extreme: { valeur: 95, statNecessaire: "mana" } } },
+     { zone: "defenseur2", label: "Défenseur 2", stats: { normal: { valeur: 89, statNecessaire: "Popularité" }, difficile: { valeur: 92, statNecessaire: "Force" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+{ zone: "defenseur3", label: "Défenseur 3", stats: { normal: { valeur: 92, statNecessaire: "Popularité" }, difficile: { valeur: 93, statNecessaire: "Force" }, extreme: { valeur: 94, statNecessaire: "Mana" } } },
+{ zone: "defenseur4", label: "Défenseur 4", stats: { normal: { valeur: 90, statNecessaire: "Vitesse" }, difficile: { valeur: 93, statNecessaire: "Vitesse" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+{ zone: "milieu1", label: "Milieu 1", stats: { normal: { valeur: 175, statNecessaire: "Force et Vitesse" }, difficile: { valeur: 93, statNecessaire: "Force" }, extreme: { valeur: 95, statNecessaire: "Popularité" } } },
+     { zone: "milieu2", label: "Milieu 2", stats: { normal: { valeur: 92, statNecessaire: "Mana" }, difficile: { valeur: 92, statNecessaire: "Popularité" }, extreme: { valeur: 93, statNecessaire: "Mana" } } },
+{ zone: "milieu3", label: "Milieu 3", stats: { normal: { valeur: 90, statNecessaire: "Mana" }, difficile: { valeur: 185, statNecessaire: "Force et Mana" }, extreme: { valeur: 92, statNecessaire: "Vitesse" } } },
+{ zone: "milieu4", label: "Milieu 4", stats: { normal: { valeur: 88, statNecessaire: "Popularité" }, difficile: { valeur: 93, statNecessaire: "Popularité" }, extreme: { valeur: 95, statNecessaire: "Mana" } } },
+{ zone: "attaquant1", label: "Attaquant 1", stats: { normal: { valeur: 93, statNecessaire: "Vitesse" }, difficile: { valeur: 93, statNecessaire: "Mana" }, extreme: { valeur: 185, statNecessaire: "Mana et Popularité" } } },
+     { zone: "attaquant2", label: "Attaquant 2", stats: { normal: { valeur: 177, statNecessaire: "Force et Mana" }, difficile: { valeur: 94, statNecessaire: "Vitesse" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+    ]
+  },
+{
+    nom: "Champion 14",
+    images: {
+      normal: "https://i83.servimg.com/u/f83/19/48/18/17/ursula11.jpg",
+      difficile: "https://i83.servimg.com/u/f83/19/48/18/17/cruell10.jpg",
+      extreme: "https://i83.servimg.com/u/f83/19/48/18/17/malzof10.jpg"
+    },
+    positions: [
+        { zone: "gardien", label: "Gardien", stats: { normal: { valeur: 90, statNecessaire: "Mana" }, difficile: { valeur: 180, statNecessaire: "Force et Mana" }, extreme: { valeur: 94, statNecessaire: "Vitesse" } } },
+      { zone: "defenseur1", label: "Défenseur 1", stats: { normal: { valeur: 180, statNecessaire: "Force et Mana" }, difficile: { valeur: 188, statNecessaire: "Mana et Popularité" }, extreme: { valeur: 93, statNecessaire: "mana" } } },
+     { zone: "defenseur2", label: "Défenseur 2", stats: { normal: { valeur: 171, statNecessaire: "Mana et Vitesse" }, difficile: { valeur: 93, statNecessaire: "Popularité" }, extreme: { valeur: 94, statNecessaire: "Popularité" } } },
+{ zone: "defenseur3", label: "Défenseur 3", stats: { normal: { valeur: 171, statNecessaire: "Mana et Vitesse" }, difficile: { valeur: 183, statNecessaire: "Mana et Vitesse" }, extreme: { valeur: 184, statNecessaire: "Force et Mana" } } },
+{ zone: "defenseur4", label: "Défenseur 4", stats: { normal: { valeur: 90, statNecessaire: "Popularité" }, difficile: { valeur: 90, statNecessaire: "Force" }, extreme: { valeur: 184, statNecessaire: "Mana et Vitesse" } } },
+{ zone: "milieu1", label: "Milieu 1", stats: { normal: { valeur: 92, statNecessaire: "Vitesse" }, difficile: { valeur: 93, statNecessaire: "Force" }, extreme: { valeur: 93, statNecessaire: "Vitesse" } } },
+     { zone: "milieu2", label: "Milieu 2", stats: { normal: { valeur: 90, statNecessaire: "Mana" }, difficile: { valeur: 90, statNecessaire: "Force" }, extreme: { valeur: 186, statNecessaire: "Force et Vitesse" } } },
+{ zone: "milieu3", label: "Milieu 3", stats: { normal: { valeur: 92, statNecessaire: "Mana" }, difficile: { valeur: 93, statNecessaire: "Mana" }, extreme: { valeur: 94, statNecessaire: "Popularité" } } },
+{ zone: "milieu4", label: "Milieu 4", stats: { normal: { valeur: 173, statNecessaire: "Mana et Vitesse" }, difficile: { valeur: 92, statNecessaire: "Mana" }, extreme: { valeur: 95, statNecessaire: "Mana" } } },
+{ zone: "attaquant1", label: "Attaquant 1", stats: { normal: { valeur: 92, statNecessaire: "Popularité" }, difficile: { valeur: 188, statNecessaire: "Force et Popularité" }, extreme: { valeur: 366, statNecessaire: "Toutes" } } },
+     { zone: "attaquant2", label: "Attaquant 2", stats: { normal: { valeur: 92, statNecessaire: "Force" }, difficile: { valeur: 93, statNecessaire: "Force" }, extreme: { valeur: 95, statNecessaire: "Force" } } },
+    ]
+  },
+{
+    nom: "Champion 15",
+    images: {
+      normal: "https://i83.servimg.com/u/f83/19/48/18/17/optimu10.jpg",
+      difficile: "https://i83.servimg.com/u/f83/19/48/18/17/optimu12.jpg",
+      extreme: "https://i83.servimg.com/u/f83/19/48/18/17/optimu11.jpg"
+    },
+    positions: [
+{ zone: "gardien", label: "Gardien", stats: { normal: { valeur: 92, statNecessaire: "Force" }, difficile: { valeur: 93, statNecessaire: "Popularité" }, extreme: { valeur: 94, statNecessaire: "Vitesse" } } },
+      { zone: "defenseur1", label: "Défenseur 1", stats: { normal: { valeur: 90, statNecessaire: "Force" }, difficile: { valeur: 93, statNecessaire: "Mana" }, extreme: { valeur: 95, statNecessaire: "mana" } } },
+     { zone: "defenseur2", label: "Défenseur 2", stats: { normal: { valeur: 176, statNecessaire: "Force et Mana" }, difficile: { valeur: 352, statNecessaire: "Toutes" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+{ zone: "defenseur3", label: "Défenseur 3", stats: { normal: { valeur: 92, statNecessaire: "Mana" }, difficile: { valeur: 92, statNecessaire: "Force" }, extreme: { valeur: 94, statNecessaire: "Mana" } } },
+{ zone: "defenseur4", label: "Défenseur 4", stats: { normal: { valeur: 90, statNecessaire: "Vitesse" }, difficile: { valeur: 92, statNecessaire: "Mana" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+{ zone: "milieu1", label: "Milieu 1", stats: { normal: { valeur: 175, statNecessaire: "Force et Vitesse" }, difficile: { valeur: 93, statNecessaire: "Force" }, extreme: { valeur: 95, statNecessaire: "Popularité" } } },
+     { zone: "milieu2", label: "Milieu 2", stats: { normal: { valeur: 92, statNecessaire: "Mana" }, difficile: { valeur: 92, statNecessaire: "Popularité" }, extreme: { valeur: 93, statNecessaire: "Mana" } } },
+{ zone: "milieu3", label: "Milieu 3", stats: { normal: { valeur: 90, statNecessaire: "Mana" }, difficile: { valeur: 93, statNecessaire: "Mana" }, extreme: { valeur: 94, statNecessaire: "Vitesse" } } },
+{ zone: "milieu4", label: "Milieu 4", stats: { normal: { valeur: 173, statNecessaire: "Force et Mana" }, difficile: { valeur: 93, statNecessaire: "Popularité" }, extreme: { valeur: 186, statNecessaire: "Force et Mana" } } },
+{ zone: "attaquant1", label: "Attaquant 1", stats: { normal: { valeur: 177, statNecessaire: "Force et Popularité" }, difficile: { valeur: 183, statNecessaire: "Mana et Popularité" }, extreme: { valeur: 365, statNecessaire: "Toutes" } } },
+{ zone: "attaquant2", label: "Attaquant 2", stats: { normal: { valeur: 177, statNecessaire: "Force et Mana" }, difficile: { valeur: 94, statNecessaire: "Vitesse" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+    ]
+  },
+{
+    nom: "Champion 16",
+    images: {
+      normal: "https://i83.servimg.com/u/f83/19/48/18/17/batman10.jpg",
+      difficile: "https://i83.servimg.com/u/f83/19/48/18/17/batman12.jpg",
+      extreme: "https://i83.servimg.com/u/f83/19/48/18/17/batman11.jpg"
+    },
+    positions: [
+        { zone: "gardien", label: "Gardien", stats: { normal: { valeur: 90, statNecessaire: "Mana" }, difficile: { valeur: 180, statNecessaire: "Force et Mana" }, extreme: { valeur: 94, statNecessaire: "Vitesse" } } },
+      { zone: "defenseur1", label: "Défenseur 1", stats: { normal: { valeur: 180, statNecessaire: "Force et Mana" }, difficile: { valeur: 188, statNecessaire: "Mana et Popularité" }, extreme: { valeur: 93, statNecessaire: "mana" } } },
+     { zone: "defenseur2", label: "Défenseur 2", stats: { normal: { valeur: 171, statNecessaire: "Mana et Vitesse" }, difficile: { valeur: 93, statNecessaire: "Popularité" }, extreme: { valeur: 94, statNecessaire: "Popularité" } } },
+{ zone: "defenseur3", label: "Défenseur 3", stats: { normal: { valeur: 171, statNecessaire: "Mana et Vitesse" }, difficile: { valeur: 183, statNecessaire: "Mana et Vitesse" }, extreme: { valeur: 184, statNecessaire: "Force et Mana" } } },
+{ zone: "defenseur4", label: "Défenseur 4", stats: { normal: { valeur: 90, statNecessaire: "Popularité" }, difficile: { valeur: 90, statNecessaire: "Force" }, extreme: { valeur: 184, statNecessaire: "Mana et Vitesse" } } },
+{ zone: "milieu1", label: "Milieu 1", stats: { normal: { valeur: 92, statNecessaire: "Vitesse" }, difficile: { valeur: 93, statNecessaire: "Force" }, extreme: { valeur: 93, statNecessaire: "Vitesse" } } },
+     { zone: "milieu2", label: "Milieu 2", stats: { normal: { valeur: 90, statNecessaire: "Mana" }, difficile: { valeur: 90, statNecessaire: "Force" }, extreme: { valeur: 186, statNecessaire: "Force et Vitesse" } } },
+{ zone: "milieu3", label: "Milieu 3", stats: { normal: { valeur: 92, statNecessaire: "Mana" }, difficile: { valeur: 93, statNecessaire: "Mana" }, extreme: { valeur: 94, statNecessaire: "Popularité" } } },
+{ zone: "milieu4", label: "Milieu 4", stats: { normal: { valeur: 173, statNecessaire: "Mana et Vitesse" }, difficile: { valeur: 92, statNecessaire: "Mana" }, extreme: { valeur: 95, statNecessaire: "Mana" } } },
+{ zone: "attaquant1", label: "Attaquant 1", stats: { normal: { valeur: 92, statNecessaire: "Popularité" }, difficile: { valeur: 188, statNecessaire: "Force et Popularité" }, extreme: { valeur: 366, statNecessaire: "Toutes" } } },
+     { zone: "attaquant2", label: "Attaquant 2", stats: { normal: { valeur: 92, statNecessaire: "Force" }, difficile: { valeur: 93, statNecessaire: "Force" }, extreme: { valeur: 95, statNecessaire: "Force" } } },
+    ]
+  },
+{
+    nom: "Champion 17",
+    images: {
+      normal: "https://i83.servimg.com/u/f83/19/48/18/17/broly410.jpg",
+      difficile: "https://i83.servimg.com/u/f83/19/48/18/17/broly510.jpg",
+      extreme: "https://i83.servimg.com/u/f83/19/48/18/17/broly610.jpg"
+    },
+    positions: [
+        { zone: "gardien", label: "Gardien", stats: { normal: { valeur: 175, statNecessaire: "Mana et Popularité" }, difficile: { valeur: 93, statNecessaire: "Mana" }, extreme: { valeur: 94, statNecessaire: "Vitesse" } } },
+      { zone: "defenseur1", label: "Défenseur 1", stats: { normal: { valeur: 90, statNecessaire: "Force" }, difficile: { valeur: 185, statNecessaire: "Force et Mana" }, extreme: { valeur: 95, statNecessaire: "mana" } } },
+     { zone: "defenseur2", label: "Défenseur 2", stats: { normal: { valeur: 89, statNecessaire: "Popularité" }, difficile: { valeur: 92, statNecessaire: "Force" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+{ zone: "defenseur3", label: "Défenseur 3", stats: { normal: { valeur: 92, statNecessaire: "Popularité" }, difficile: { valeur: 93, statNecessaire: "Force" }, extreme: { valeur: 94, statNecessaire: "Mana" } } },
+{ zone: "defenseur4", label: "Défenseur 4", stats: { normal: { valeur: 90, statNecessaire: "Vitesse" }, difficile: { valeur: 93, statNecessaire: "Vitesse" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+{ zone: "milieu1", label: "Milieu 1", stats: { normal: { valeur: 175, statNecessaire: "Force et Vitesse" }, difficile: { valeur: 93, statNecessaire: "Force" }, extreme: { valeur: 95, statNecessaire: "Popularité" } } },
+     { zone: "milieu2", label: "Milieu 2", stats: { normal: { valeur: 92, statNecessaire: "Mana" }, difficile: { valeur: 92, statNecessaire: "Popularité" }, extreme: { valeur: 93, statNecessaire: "Mana" } } },
+{ zone: "milieu3", label: "Milieu 3", stats: { normal: { valeur: 90, statNecessaire: "Mana" }, difficile: { valeur: 185, statNecessaire: "Force et Mana" }, extreme: { valeur: 92, statNecessaire: "Vitesse" } } },
+{ zone: "milieu4", label: "Milieu 4", stats: { normal: { valeur: 88, statNecessaire: "Popularité" }, difficile: { valeur: 93, statNecessaire: "Popularité" }, extreme: { valeur: 95, statNecessaire: "Mana" } } },
+{ zone: "attaquant1", label: "Attaquant 1", stats: { normal: { valeur: 93, statNecessaire: "Vitesse" }, difficile: { valeur: 93, statNecessaire: "Mana" }, extreme: { valeur: 185, statNecessaire: "Mana et Popularité" } } },
+     { zone: "attaquant2", label: "Attaquant 2", stats: { normal: { valeur: 177, statNecessaire: "Force et Mana" }, difficile: { valeur: 94, statNecessaire: "Vitesse" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+    ]
+  },
+{
+    nom: "Champion 18",
+    images: {
+      normal: "https://i83.servimg.com/u/f83/19/48/18/17/gaara310.jpg",
+      difficile: "https://i83.servimg.com/u/f83/19/48/18/17/gaara510.jpg",
+      extreme: "https://i83.servimg.com/u/f83/19/48/18/17/gaara410.jpg"
+    },
+    positions: [
+{ zone: "gardien", label: "Gardien", stats: { normal: { valeur: 92, statNecessaire: "Force" }, difficile: { valeur: 93, statNecessaire: "Popularité" }, extreme: { valeur: 94, statNecessaire: "Vitesse" } } },
+      { zone: "defenseur1", label: "Défenseur 1", stats: { normal: { valeur: 90, statNecessaire: "Force" }, difficile: { valeur: 93, statNecessaire: "Mana" }, extreme: { valeur: 95, statNecessaire: "mana" } } },
+     { zone: "defenseur2", label: "Défenseur 2", stats: { normal: { valeur: 176, statNecessaire: "Force et Mana" }, difficile: { valeur: 352, statNecessaire: "Toutes" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+{ zone: "defenseur3", label: "Défenseur 3", stats: { normal: { valeur: 92, statNecessaire: "Mana" }, difficile: { valeur: 92, statNecessaire: "Force" }, extreme: { valeur: 94, statNecessaire: "Mana" } } },
+{ zone: "defenseur4", label: "Défenseur 4", stats: { normal: { valeur: 90, statNecessaire: "Vitesse" }, difficile: { valeur: 92, statNecessaire: "Mana" }, extreme: { valeur: 93, statNecessaire: "Force" } } },
+{ zone: "milieu1", label: "Milieu 1", stats: { normal: { valeur: 175, statNecessaire: "Force et Vitesse" }, difficile: { valeur: 93, statNecessaire: "Force" }, extreme: { valeur: 95, statNecessaire: "Popularité" } } },
+     { zone: "milieu2", label: "Milieu 2", stats: { normal: { valeur: 92, statNecessaire: "Mana" }, difficile: { valeur: 92, statNecessaire: "Popularité" }, extreme: { valeur: 93, statNecessaire: "Mana" } } },
+{ zone: "milieu3", label: "Milieu 3", stats: { normal: { valeur: 90, statNecessaire: "Mana" }, difficile: { valeur: 185, statNecessaire: "Force et Mana" }, extreme: { valeur: 92, statNecessaire: "Vitesse" } } },
+{ zone: "milieu4", label: "Milieu 4", stats: { normal: { valeur: 88, statNecessaire: "Popularité" }, difficile: { valeur: 93, statNecessaire: "Popularité" }, extreme: { valeur: 95, statNecessaire: "Mana" } } },
+{ zone: "attaquant1", label: "Attaquant 1", stats: { normal: { valeur: 92, statNecessaire: "Popularité" }, difficile: { valeur: 188, statNecessaire: "Force et Popularité" }, extreme: { valeur: 366, statNecessaire: "Toutes" } } },
+     { zone: "attaquant2", label: "Attaquant 2", stats: { normal: { valeur: 92, statNecessaire: "Force" }, difficile: { valeur: 93, statNecessaire: "Force" }, extreme: { valeur: 95, statNecessaire: "Force" } } },
+    ]
+  },
+  // Ajouter d'autres champions ici jusqu'à Champion 18...
+];
+
+let championChoisi = null;
+    let difficulte = "normal";
+    let score = 0;
+
+    function choisirChampion(championId) {
+        championChoisi = champions[championId - 1];
+        alert(`Vous avez choisi le ${championChoisi.nom}`);
+        document.getElementById('choix-champion').classList.remove('visible');
+        document.getElementById('choix-difficulte').classList.add('visible');
+    }
+
+    function choisirDifficulte(niveau) {
+        difficulte = niveau;
+        document.getElementById('choix-difficulte').classList.remove('visible');
+        document.getElementById('jeu').classList.add('visible');
+        afficherAdversaires();
+    }
+
+    function afficherAdversaires() {
+        const terrain = document.getElementById("terrain");
+        terrain.innerHTML = ""; // Vider le terrain avant d'ajouter les adversaires
+
+        championChoisi.positions.forEach((adversaire) => {
+            const stats = adversaire.stats[difficulte];
+
+            const adversaireDiv = document.createElement("div");
+            adversaireDiv.classList.add("poste");
+            adversaireDiv.id = adversaire.zone;
+
+            adversaireDiv.innerHTML = `
+                <h3>${adversaire.label}</h3>
+                <img src="${championChoisi.images[difficulte]}" alt="${adversaire.label}">
+                <p><strong>Stat clé :</strong> ${stats.statNecessaire} (<strong>${stats.valeur}</strong>)</p>
+                <button onclick="defier('${adversaire.zone}')">Défier</button>
+            `;
+
+            terrain.appendChild(adversaireDiv);
+        });
+    }
+
+    function defier(zone) {
+  const adversaire = championChoisi.positions.find((p) => p.zone === zone);
+  const stats = adversaire.stats[difficulte];
+
+  const nomJoueur = prompt("Entrez le nom de votre personnage :");
+  const valeurStat = parseInt(prompt(`Entrez la valeur de votre stat (${stats.statNecessaire}) :`));
+
+  if (valeurStat > stats.valeur) {
+    score++;
+    alert(`Vous avez gagné contre ${adversaire.label}!`);
+  } else {
+    alert(`Vous avez perdu contre ${adversaire.label}.`);
+  }
+
+  // Mettre à jour le score
+  document.getElementById("score").textContent = score;
+
+  // Supprimer l'adversaire du terrain
+  document.getElementById(zone).classList.add("hidden");
+
+  // Retirer l'adversaire de la liste
+  championChoisi.positions = championChoisi.positions.filter((p) => p.zone !== zone);
+
+  // Vérifier si tous les adversaires sont battus
+  if (championChoisi.positions.length === 0) {
+    terminerPartie();
+  }
+}
+
+function terminerPartie() {
+  const matchsTotaux = 11; // Nombre total de matchs
+  const adversaireScore = matchsTotaux - score; // Calcul des victoires de l'adversaire
+
+  // Déterminer le résultat
+  const victoire = score >= 6;
+
+  // Afficher le message final
+  const messageFin = victoire
+    ? `Victoire 🎉 ! Résultat final : ${score}-${adversaireScore}. Vous avez dominé le match !`
+    : `Défaite 😞... Résultat final : ${score}-${adversaireScore}. Mieux vaut réessayer la prochaine fois.`;
+
+  // Mettre à jour le DOM
+  document.getElementById("message-fin").textContent = messageFin;
+  document.getElementById("jeu").classList.remove("visible");
+  document.getElementById("jeu").classList.add("hidden");
+  document.getElementById("fin-partie").classList.add("visible");
+}
+
+</script>
+
+  </script>
+</body>
+</html>
